@@ -1,6 +1,5 @@
 /vendor
 /bin
-/www
 composer.lock
 composer.phar
 phpunit.xml
