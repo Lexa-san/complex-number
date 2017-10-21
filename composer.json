@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lexasan\\ComplexNumber\\": "src/"
+            "Lexasan\\": "lib/"
         }
     },
     "minimum-stability": "stable"
