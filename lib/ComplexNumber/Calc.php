@@ -73,6 +73,8 @@ class Calc
      * @param CNumber $z1
      * @param CNumber $z2
      *
+     * @throws \UnexpectedValueException
+     *
      * @return CNumber
      */
     public static function div(CNumber $z1, CNumber $z2)

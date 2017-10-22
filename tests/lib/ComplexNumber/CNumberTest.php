@@ -10,7 +10,7 @@ use Lexasan\ComplexNumber\CNumber;
  * @package tests\lib\ComplexNumber
  * @covers CNumber
  */
-class CNumberTest extends TestCase
+final class CNumberTest extends TestCase
 {
 
     /**
