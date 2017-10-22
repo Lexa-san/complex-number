@@ -14,8 +14,49 @@ class CNumberTest extends TestCase
 {
 
     /**
-     * @dataProvider numberProvider
+     * @covers CNumber::__construct()
+     * @dataProvider fullPartProvider
+     */
+    public function testConstruct($real, $imag)
+    {
+        $z = new CNumber($real, $imag);
+        $this->assertEquals($real, $z->getReal());
+        $this->assertEquals($imag, $z->getImag());
+    }
+
+    /**
+     * @covers CNumber::__toString()
+     * @dataProvider fullPartProvider
+     */
+    public function testToString($real, $imag, $text)
+    {
+        $z = new CNumber($real, $imag);
+        $this->assertEquals($text, (string)$z);
+    }
+
+    /**
+     * Return test params:
+     *  - real
+     *  - imag
+     *  - text view
+     *
+     * @return array
+     */
+    public function fullPartProvider()
+    {
+        return [
+            [0, 0, '0'],
+            [0, 1, 'i'],
+            [1, 0, '1'],
+            [5, 2, '5 + 2i'],
+            [2, -5, '2 - 5i'],
+            [0.125, 1.5, '0.125 + 1.5i'],
+        ];
+    }
+
+    /**
      * @covers CNumber::setReal
+     * @dataProvider numberProvider
      *
      * @param float $val
      */
@@ -28,8 +69,8 @@ class CNumberTest extends TestCase
     }
 
     /**
-     * @dataProvider numberProvider
      * @covers CNumber::setImag
+     * @dataProvider numberProvider
      *
      * @param float $val
      */
@@ -39,16 +80,6 @@ class CNumberTest extends TestCase
         $z = new CNumber();
         $z->setImag($val);
         $this->assertEquals($val, $z->getImag());
-    }
-
-    /**
-     * @covers CNumber::__construct()
-     */
-    public function testConstruct()
-    {
-        $z = new CNumber(1, 2);
-        $this->assertEquals(1, $z->getReal());
-        $this->assertEquals(2, $z->getImag());
     }
 
     /**
