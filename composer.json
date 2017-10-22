@@ -1,7 +1,7 @@
 {
     "name": "Lexa-san/complex-number",
     "description": "Complex number calculation.",
-    "keywords": ["complex"],
+    "keywords": ["complex number", "complex", "math"],
     "license": "MIT",
     "authors": [
         {
