@@ -35,10 +35,7 @@ class CNumberTest extends TestCase
     }
 
     /**
-     * Return test params:
-     *  - real
-     *  - imag
-     *  - text view
+     * [real, imag, expected]
      *
      * @return array
      */
@@ -48,9 +45,35 @@ class CNumberTest extends TestCase
             [0, 0, '0'],
             [0, 1, 'i'],
             [1, 0, '1'],
+            [0, -2, '-2i'],
+            [0, -1, '-i'],
             [5, 2, '5 + 2i'],
             [2, -5, '2 - 5i'],
             [0.125, 1.5, '0.125 + 1.5i'],
+        ];
+    }
+
+    /**
+     * @covers CNumber::isZero
+     * @dataProvider zeroProvider
+     */
+    public function testIsZero($real, $imag, $expected)
+    {
+        $z = new CNumber($real, $imag);
+        $this->assertEquals($expected, $z->isZero());
+    }
+
+    /**
+     * [real, imag, expected]
+     *
+     * @return array
+     */
+    public function zeroProvider()
+    {
+        return [
+            [0, 0, true],
+            [1, 0, false],
+            [0, 1, false],
         ];
     }
 
@@ -62,7 +85,6 @@ class CNumberTest extends TestCase
      */
     public function testSetReal($val)
     {
-//        $val = 10;
         $z = new CNumber();
         $z->setReal($val);
         $this->assertEquals($val, $z->getReal());
@@ -76,15 +98,13 @@ class CNumberTest extends TestCase
      */
     public function testSetImag($val)
     {
-//        $val = 10;
         $z = new CNumber();
         $z->setImag($val);
         $this->assertEquals($val, $z->getImag());
     }
 
     /**
-     * Returns params for test:
-     *  - val - any number.
+     * [number]
      *
      * @return array
      */

@@ -24,7 +24,10 @@ class CNumber
         if ($this->isZero()) {
             return (string)0;
         } elseif (0 == $this->_real) {
-            return (string)(in_array($this->_imag, [-1,1]) ? '' : $this->_imag) . 'i';
+            return sprintf('%s%s',
+                ($this->_imag < 0 ? '-' : ''),
+                in_array($this->_imag, [-1,1]) ? '' : abs($this->_imag)
+            ) . 'i';
         } elseif (0 == $this->_imag) {
             return (string)$this->_real;
         }
