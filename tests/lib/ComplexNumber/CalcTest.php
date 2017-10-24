@@ -32,7 +32,7 @@ final class CalcTest extends TestCase
     public function addProvider()
     {
         return [
-            [(new CNumber()), (new CNumber()), (new CNumber())],
+            [new CNumber(), new CNumber(), new CNumber()],
             [new CNumber(0, 1), new CNumber(1, 0), new CNumber(1, 1)],
             [new CNumber(5, 2), new CNumber(2, -5), new CNumber(7, -3)],
             [new CNumber(1, 3), new CNumber(4, -5), new CNumber(5, -2)],
@@ -57,7 +57,7 @@ final class CalcTest extends TestCase
     public function subProvider()
     {
         return [
-            [(new CNumber()), (new CNumber()), (new CNumber())],
+            [new CNumber(), new CNumber(), new CNumber()],
             [new CNumber(0, 1), new CNumber(1, 0), new CNumber(-1, 1)],
             [new CNumber(1, 0), new CNumber(0, 1), new CNumber(1, -1)],
             [new CNumber(5, 2), new CNumber(2, -5), new CNumber(3, 7)],
@@ -82,7 +82,7 @@ final class CalcTest extends TestCase
     public function mulProvider()
     {
         return [
-            [(new CNumber()), (new CNumber()), (new CNumber())],
+            [new CNumber(), new CNumber(), new CNumber()],
             [new CNumber(1, 1), new CNumber(), new CNumber()],
             [new CNumber(), new CNumber(1, 1), new CNumber()],
             [new CNumber(1, 0), new CNumber(0, 1), new CNumber(0, 1)],

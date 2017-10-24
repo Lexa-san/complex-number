@@ -1,8 +1,10 @@
 /vendor
 /bin
+/cli
 composer.lock
 composer.phar
 phpunit.xml
+phpunit.phar
 .idea
 .DS_Store
 .settings
